@@ -1,9 +1,9 @@
 import { load } from "cheerio";
 
-export const extractMetaTagsFromString = async (htmlString:string, keysList:string[]) =>  {
+export const extractMetaTagsFromString = async (htmlString, keysList) =>  {
   const $ = load(htmlString);
   const metaTags = $('meta');
-  const metaObject:Record<string,any> = {};
+  const metaObject = {};
 
     metaTags.each((index, element) => {
       const nameAttribute = $(element).attr('name');
