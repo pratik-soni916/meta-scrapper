@@ -8,7 +8,6 @@ export const getHtmlContent = async (url) => {
             headless: true,
         })
 
-
         const page = await browser.newPage();
         if (page) {
             const userAgent = new UserAgent({ deviceCategory: 'desktop' });
