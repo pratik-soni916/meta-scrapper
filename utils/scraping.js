@@ -4,10 +4,8 @@ import { KEYS_LIST } from "./constants.js"
 
 export const getHtmlContent = async (url) => {
     try {
-        const proxyUrl = 'http://157.90.122.53:80';
         const browser = await puppeteer.launch({
             headless: true,
-            // args: [`--proxy-server=${proxyUrl}`]
         })
 
 
@@ -41,7 +39,7 @@ export const getHtmlContent = async (url) => {
                     }
                 }
             });
-
+            console.log({ metaObject })
             return metaObject;
         }, KEYS_LIST);
         browser.close()

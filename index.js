@@ -13,8 +13,8 @@ app.post("/", authentication, async (req, res) => {
 
     if (!url) return res.json({ message: "No url found" }).status(404)
     const data = await getHtmlContent(url)
-
-    res.send(data)
+    console.log({ data })
+    res.json(data).status(200)
   } catch (error) {
     res.status(400).json({ error })
   }
