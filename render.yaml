@@ -1,0 +1,1 @@
+buildCommand: ./install_dependencies.sh && npm install

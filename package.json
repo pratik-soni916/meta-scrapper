@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npx puppeteer browsers install chrome && node index.js",
+    "install-dependencies": "bash install_dependencies.sh",
+    "start": "npm run install-dependencies && node index.js",
     "dev": "nodemon index.js"
   },
   "keywords": [],
