@@ -21,6 +21,10 @@ app.post("/", authentication, async (req, res) => {
 
 })
 
+app.get("/health-check", (req, res) => {
+  res.sendStatus(200)
+})
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
