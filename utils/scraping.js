@@ -4,8 +4,17 @@ import { KEYS_LIST } from "./constants.js"
 
 export const getHtmlContent = async (url) => {
     try {
-        const browser = await puppeteer.launch({
+        const proxyUrl = "scrapingant:443e8ad972ed40959d280778db94de5b@proxy.scrapingant.com:8080"
+        const browser = await puppeteer.connect({
+            browserWSEndpoint: 'scrapingant:443e8ad972ed40959d280778db94de5b@proxy.scrapingant.com:8080',
+            defaultViewport: null,
             headless: true,
+            args: ['--no-sandbox', '--disable-setuid-sandbox'],
+            ignoreHTTPSErrors: true,
+            timeout: 30000,
+            slowMo: 0,
+            ignoreDefaultArgs: ['--mute-audio', '--disable-extensions'],
+            executablePath: 'puppeteer'
         })
 
         const page = await browser.newPage();
